@@ -1,0 +1,15 @@
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql-server
+    user: root
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: "12.nomadsqlserver"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sql-data:/var/opt/mssql/data
+
+volumes:
+  sql-data:
